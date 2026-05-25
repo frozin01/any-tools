@@ -40,7 +40,7 @@ function App() {
             <p>{stats.characters}</p>
           </article>
           <article className="stat">
-            <h2>No spaces</h2>
+            <h2>Without spaces</h2>
             <p>{stats.charactersNoSpaces}</p>
           </article>
         </div>
