@@ -1,27 +1,106 @@
-.app {
+﻿.app-root {
   min-height: 100vh;
-  display: grid;
-  place-items: center;
-  padding: 24px;
 }
 
-.card {
-  width: min(780px, 100%);
+.navbar-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding: 16px;
+  background: rgba(233, 242, 255, 0.9);
+  backdrop-filter: blur(8px);
+}
+
+.navbar {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
   background: #ffffff;
   border: 1px solid #d8dee6;
-  border-radius: 16px;
-  padding: 24px;
-  box-shadow: 0 12px 30px rgba(18, 38, 63, 0.08);
+  border-radius: 14px;
+  padding: 12px 16px;
 }
 
-h1 {
-  margin: 0;
+.brand-wrap {
+  display: flex;
+  align-items: center;
+}
+
+.brand-script-logo {
+  width: 230px;
+  height: auto;
+  display: block;
+}
+
+.nav-links {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #334e68;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-weight: 600;
+}
+
+.nav-link:hover {
+  background: #e6edf8;
+}
+
+.nav-link.active {
+  background: #2f6fed;
+  color: #ffffff;
+}
+
+.app-main {
+  padding: 8px 24px 24px;
+}
+
+.page-shell {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+}
+
+.page-title {
+  margin: 0 0 10px;
   color: #102a43;
-  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  text-align: center;
+  font-size: clamp(2rem, 3vw, 2.8rem);
 }
 
 .subtitle {
-  margin: 8px 0 20px;
+  margin: 0 0 16px;
+  color: #486581;
+  text-align: center;
+}
+
+.home-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid #d8dee6;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 12px 30px rgba(18, 38, 63, 0.08);
+}
+
+.tool-title {
+  margin: 0;
+  color: #102a43;
+  font-size: 1.5rem;
+}
+
+.text-muted {
   color: #486581;
 }
 
@@ -44,9 +123,9 @@ textarea:focus {
 }
 
 .stats {
-  margin-top: 18px;
+  margin-top: 16px;
   display: grid;
-  gap: 12px;
+  gap: 10px;
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
@@ -54,25 +133,27 @@ textarea:focus {
   background: #f0f4f8;
   border: 1px solid #d9e2ec;
   border-radius: 12px;
-  padding: 12px;
+  padding: 10px;
 }
 
-.stat h2 {
+.stat h3 {
   margin: 0;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: #486581;
   font-weight: 600;
 }
 
 .stat p {
-  margin: 8px 0 0;
-  font-size: 1.5rem;
+  margin: 6px 0 0;
+  font-size: 1.4rem;
   color: #102a43;
   font-weight: 700;
 }
 
-button {
-  margin-top: 16px;
+.tool-button {
+  display: inline-block;
+  margin-top: 14px;
+  text-decoration: none;
   border: 0;
   border-radius: 10px;
   padding: 10px 16px;
@@ -82,9 +163,73 @@ button {
   cursor: pointer;
 }
 
-button:disabled {
+.tool-button:disabled {
   background: #9fb4d8;
   cursor: not-allowed;
+}
+
+.stopwatch-display {
+  border: 2px solid #2f6fed;
+  border-radius: 10px;
+  background: #f0f1f3;
+  padding: 18px;
+  text-align: center;
+  color: #102a43;
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  font-weight: 700;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+.stopwatch-controls {
+  margin-top: 14px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.stopwatch-btn {
+  margin-top: 0;
+}
+
+.reset-btn {
+  background: #9ca3af;
+}
+
+.lap-btn {
+  background: #36567a;
+}
+
+.laps {
+  margin-top: 18px;
+  border: 1px solid #d9e2ec;
+  border-radius: 12px;
+  background: #fbfdff;
+  padding: 12px;
+}
+
+.laps h2 {
+  margin: 0;
+  color: #334e68;
+  font-size: 1rem;
+}
+
+.laps ol {
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+
+.laps li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: #f0f4f8;
+  color: #102a43;
 }
 
 .sr-only {
@@ -99,12 +244,35 @@ button:disabled {
   border: 0;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 900px) {
+  .home-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .brand-script-logo {
+    width: 185px;
+  }
+
+  .app-main {
+    padding: 8px 16px 16px;
+  }
+
   .card {
-    padding: 18px;
+    padding: 16px;
   }
 
   .stats {
     grid-template-columns: 1fr;
+  }
+
+  .stopwatch-controls {
+    flex-direction: column;
   }
 }
